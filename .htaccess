@@ -4,7 +4,7 @@
     </IfModule>
 
     RewriteEngine On
-
+	
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
@@ -82,3 +82,35 @@ Header append Vary Accept-Encoding
 RewriteCond %{HTTP:Accept-encoding} gzip
 
 DirectoryIndex index.php
+
+<FilesMatch "\.(js|css|php)$">
+	SetOutputFilter DEFLATE
+	BrowserMatch ^Mozilla/4 gzip-only-text/html
+	BrowserMatch ^Mozilla/4\.0[678] no-gzip
+	BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+	SetEnvIfNoCase Request_URI \
+	\.(?:gif|jpe?g|png)$ no-gzip dont-vary
+	Header append Vary User-Agent env=!dont-vary
+</FilesMatch>
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+    Header set Cache-Control "public"
+    Header set Expires "Thu, 15 Apr 2020 20:00:00 GMT"
+    Header unset Last-Modified
+    Header unset ETag
+    FileETag None
+</FilesMatch>
+
+ErrorDocument 206 /
+ErrorDocument 400 /
+ErrorDocument 401 /
+ErrorDocument 403 /
+ErrorDocument 404 /
+ErrorDocument 404 /
+ErrorDocument 405 /
+ErrorDocument 406 /
+ErrorDocument 409 /
+ErrorDocument 413 /
+ErrorDocument 414 /
+ErrorDocument 500 /
+ErrorDocument 501 /
