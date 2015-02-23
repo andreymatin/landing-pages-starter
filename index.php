@@ -9,7 +9,7 @@
 	Mustache_Autoloader::register();
 
 	$options =  array('extension' => '.html');
-	
+
 	$m = new Mustache_Engine(array(
 		'template_class_prefix' => '__MyTemplates_',
 		'cache' => dirname(__FILE__).'/tmp/cache/mustache',

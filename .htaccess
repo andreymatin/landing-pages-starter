@@ -4,7 +4,7 @@
     </IfModule>
 
     RewriteEngine On
-	
+
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
@@ -50,8 +50,8 @@
   ExpiresByType application/rss+xml       "access plus 1 hour"
   # favicon (cannot be renamed)
 	AddType image/vnd.microsoft.icon .ico
-	ExpiresByType image/vnd.microsoft.icon "access plus 3 months"  
-  
+	ExpiresByType image/vnd.microsoft.icon "access plus 3 months"
+
   # media: images, video, audio
   ExpiresByType image/png                 "access plus 1 month"
   ExpiresByType image/jpg                 "access plus 1 month"
@@ -78,7 +78,7 @@ Header unset Last-Modified
 Header unset ETag
 
 AddEncoding gzip .gz
-Header append Vary Accept-Encoding   
+Header append Vary Accept-Encoding
 RewriteCond %{HTTP:Accept-encoding} gzip
 
 DirectoryIndex index.php
