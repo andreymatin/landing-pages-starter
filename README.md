@@ -19,15 +19,6 @@ PHP Libraries
 - lib\compress\html.php - HTML optimisation and compress
 - lib\mustache - folder for latest Mustache (https://github.com/bobthecow/mustache.php)
 
-Bower
------
-
-You can get the latest release using bower.
-
-```ssh
-bower install landing-pages-starter
-```
-
 Files
 -----
 - cron\
